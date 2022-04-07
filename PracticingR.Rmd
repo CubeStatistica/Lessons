@@ -1,0 +1,240 @@
+---
+title: "PracticingR"
+author: "Sawera Saleem"
+date: "2/25/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Reference 
+### https://www.youtube.com/channel/UCcHkmB0xEm7ndGvEfSmfuqQ/playlists
+
+## Vectors
+
+```{r}
+c()
+columnName <- c() #vector
+columnName
+x <- 1:4
+names(x) <- letters[1:4]
+x
+
+```
+
+
+## creating Data frame
+
+```{r}
+x_dataFrame <- as.data.frame(x) #creates a excel kind of thing
+x_dataFrame
+
+colnames(x_dataFrame) #column names
+# row.names(x_dataFrame) # row names
+
+
+```
+
+## install and load package ggplot (grammer of graphics)
+
+```{r}
+library(ggplot2) #loading package
+mpg <- mpg
+plot <- ggplot(mpg, aes(class))
+plot + geom_bar()
+
+```
+
+
+```{r}
+mpg$displ
+mpg[1:3,"displ"] #returns first 3 rows (displ value only)
+
+```
+
+
+## Aggregae/sum 
+
+```{r}
+
+aggregate(data = mpg, displ~class, FUN=mean) #display by class
+```
+
+
+## install and load package dplyr
+#### Pipe %>% is used to apply groub by to dataset
+#### same as abaove but diff way using dplyr
+
+```{r}
+library(dplyr)
+mpg %>%
+  group_by(class) %>%
+  summarize("Mean Displ"=mean(displ))
+```
+
+
+
+## install and load nycflights13
+## filter function
+
+```{r}
+library(nycflights13)
+data <- flights
+head(data)
+colnames(data)
+# row.names(data)
+filtered_data <- filter(data, tailnum=="N76515") #TAILNUM col, filter function from dplyr
+filtered_data2 <- data[which(data$tailnum=="N76515"),] #without dplyr
+
+```
+
+
+
+## arrange function (deplyr)
+
+```{r}
+arranged_data <- arrange(filtered_data, year,month,day)
+
+```
+
+
+## rename column name using rename function (deplyr)
+
+```{r}
+data <- mpg
+data <- rename(data,displacement=displ) #rename col
+
+```
+
+## select function (deplyr)
+
+```{r}
+
+small_data <- select(data,manufacturer, displacement,class) #returns only mentioned cols 
+
+```
+
+## mutate function (dplyr): creates, modify and del columns
+
+```{r}
+data <- flights
+colnames(data)
+data <- mutate(data, flight_gain=dep_delay-arr_delay,
+               gain_per_hour=flight_gain/(air_time/60))
+
+```
+
+## group by
+
+```{r}
+by_tailnum<-group_by(data,tailnum)
+#we can see difference after we apply summarize func
+```
+
+
+## summarise 
+
+```{r}
+summarise(data, mean_flight_gain=mean(flight_gain, na.rm=TRUE),) #NA values are not used
+
+plane_summary<-summarise(by_tailnum, mean_flight_gain=mean(flight_gain, na.rm=TRUE),) 
+
+```
+
+## chaining operator
+
+```{r}
+data <- flights
+data %>%
+  mutate(flight_gain=dep_delay-arr_delay,
+               gain_per_hour=flight_gain/(air_time/60)) %>%
+  group_by(tailnum) %>%
+  summarise(mean_flight_gain=mean(flight_gain, na.rm=TRUE),)
+
+
+```
+
+## datasets in R
+
+```{r}
+library(help="datasets") #shows all datasets in R
+library(ggplot2)
+data <- trees
+ggplot(data, aes(x=Height,
+                 y=Girth,
+                 size= Girth))+geom_point()
+
+data <- mpg
+ggplot(data, aes(x=displ,
+                 y=cty,
+                 size= cyl,
+                 color=class))+geom_point()
+
+ggplot(data, aes(x=displ,
+                 y=cty,
+                 size= cyl,
+                 color=class))+geom_point()
+
+```
+
+### sub (to replace first occurence in specific col)
+### gsub (to replace in specific col) (global)
+### trimws (trims leading and trailing white spaces)
+### dfr (binds row wise)
+### dfc (binds col wise)
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
+
+## ???
+
+```{r}
+
+
+```
