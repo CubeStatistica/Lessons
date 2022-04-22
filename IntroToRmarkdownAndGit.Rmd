@@ -94,6 +94,10 @@ git init
 git add . #add-all
 git status #tells-current-branch/status-only
 
+# How to clone a repo from GitHub
+# Step 1: Open “Git Bash” and change the current working directory to the location where you want the cloned directory.THEN
+git clone #{repository URL}
+
 # How to commit to the local repo and push to remote repo.
 git commit -m "commit_msg" #repo-updation-msg
 git remote add origin https://github.com/sawerasaleemshaikh/___.git 
