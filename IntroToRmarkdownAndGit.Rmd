@@ -88,9 +88,13 @@ e.g:
 
 ```{bash eval=FALSE}
 #on branches
+
+# How to initialize a folder/directory and make it a repo.
 git init
 git add . #add-all
 git status #tells-current-branch/status-only
+
+# How to commit to the local repo and push to remote repo.
 git commit -m "commit_msg" #repo-updation-msg
 git remote add origin https://github.com/sawerasaleemshaikh/___.git 
 git branch #shows-all-parent-branches-with pointer-on-current-branch
