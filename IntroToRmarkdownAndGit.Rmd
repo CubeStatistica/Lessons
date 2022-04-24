@@ -95,6 +95,7 @@ git add . #add-all
 git status #tells-current-branch/status-only
 
 # How to clone a repo from GitHub
+# Step 0: cd into folder where you want to clone repo.
 # Step 1: Open “Git Bash” and change the current working directory to the location where you want the cloned directory.THEN
 git clone #{repository URL}
 
