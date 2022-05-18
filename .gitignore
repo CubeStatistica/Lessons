@@ -5,4 +5,5 @@
 *.ali
 .Rproj.user
 .Rhistory
+*.html
 
