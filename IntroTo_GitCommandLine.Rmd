@@ -1,0 +1,111 @@
+---
+title: "Intro to Git Commnad Line"
+author: "Faizan Khalid Mohsin"
+date: "2/23/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Git Commands
+
+```{bash eval=FALSE}
+#on branches
+
+### Start
+
+# How to clone a repo from GitHub
+# Step 0: cd into folder where you want to clone repo.
+# Step 1: Open “Git Bash” and change the current working directory to the location where you want the cloned directory.THEN
+git clone #{repository URL}
+# cd into the repo you just cloned.
+
+# Create new local branch that you will work on. 
+git branch branch_name #creates-new-branch
+# Run command:
+git branch # Creates new branch.
+
+# Checkout into the new branch. Move into new branch
+git checkout branch_name
+
+# Publish branch created in local repo to GitHub repo. 
+git push -u origin branch_name #Publishes local branch to remote GitHub branch. 
+
+# Now start work in the folder/directory - repo.
+# And always type git status before you type anything else. 
+
+# Add work to local git repo
+git add .
+
+# How to commit to the local repo and push to remote repo.
+git commit -m "commit_msg" #repo-updation-msg
+
+# Add committed work to remote github repo from local git repo.
+git push
+
+### End 
+
+# Repeat from line 111 till End when make more changes like writing more code. 
+
+
+###########
+
+# Other Git Commands below
+
+##########
+
+git remote add origin https://github.com/sawerasaleemshaikh/___.git 
+git branch #shows-all-parent-branches-with pointer-on-current-branch
+git branch branch_name #creates-new-branch
+git checkout branch_name #switches-to-mentioned-branch
+git checkout -b branch_name #creates-&-switches-to-new-mentioned-branch,-if-it-already-exists-then-it-resets-it, on local repo
+
+# Publish branch created in local repo to GitHub repo can also run the same command as above. 
+git push -u origin branch_name #Publishes local branch to remote GitHub branch. 
+
+git push -u origin branch_name #pushes-stuff-to-that-branch
+
+# How to initialize a folder/directory and make it a repo.
+git init
+git add . #add-all
+git status #tells-current-branch/status-only
+
+git branch -d branchName #del local branch while being on the develop branch
+git branch -D branchName #dont save changes and del local branch git push #when u
+git push --delete remoteBranchName localBranchName #delete remote branch
+ 
+#update develop: 
+git add .
+git commit -m ""
+git push
+
+#on main
+git push -u origin master
+git clone link
+
+git pull #to get up to date with others works
+
+git checkout branch_name #your current opened project will be closed and the one you checkedout will be opened
+
+```
+
+
+
+if history is making issue, open in vscode and go to extensions number and discard
+
+no push in develop
+
+
+# Pull Requests
+
+PR Example:
+
+PR made, please review.
+
+QC-21 gauge location changed from beside graph to top.
+
+No  errors,
+No warnings,
+App working fine.
