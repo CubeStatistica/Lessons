@@ -87,3 +87,15 @@ Jobs_Data <- Jobs_Data %>% mutate(RedFlagged = case_when(RedFlagStatus == 'Not A
 Jobs_Data$RedFlagged <- Jobs_Data$RedFlagged %>% replace_na(0)  
  head(Jobs_Data$RedFlagged )
 ```
+
+## Add Visulization 
+
+How to make histogram with ggplot.
+
+```{r}
+Jobs_Data %>%
+    group_by(JobStatus, JobCompleted) %>%
+    ggplot(aes(x =JobCompleted , fill = JobStatus)) + # `fill` is specific for histograms
+        geom_histogram()
+```
+
