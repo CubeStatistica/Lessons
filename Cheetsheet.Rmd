@@ -88,6 +88,16 @@ Jobs_Data$RedFlagged <- Jobs_Data$RedFlagged %>% replace_na(0)
  head(Jobs_Data$RedFlagged )
 ```
 
+Making new column RedFlagged
+
+```{r}
+Jobs_Data <- Jobs_Data %>% mutate(RedFlagged = case_when(RedFlagStatus == 'Not Ack' ~ '1'))
+
+ Jobs_Data$RedFlagged <- Jobs_Data$RedFlagged %>% replace_na(0)  
+```
+
+
+
 ## Add Visulization 
 
 How to make histogram with ggplot.
