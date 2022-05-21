@@ -1,0 +1,86 @@
+---
+title: "R cheet sheet"
+author: "javaria"
+date: "5/21/2022"
+output: html_document
+---
+
+### Load Libraries
+
+```{r}
+library(tidyverse)
+```
+
+### Load dataset
+
+```{r}
+Jobs_Data <- readRDS("C:/Users/erect/Desktop/CubeStatistica/QC_PROJECT/QC_PredictiveML/VIEW_CoalesceKPIs.rds")
+```
+
+## Filter
+
+```{r}
+ filter(Jobs_Data, JobStatus == "Completed")
+```
+
+### summary
+
+```{r}
+summary(Jobs_Data$JobCompleted)
+```
+
+### table
+
+```{r}
+Jobs_Data %>% group_by(FlagColour, RedFlagStatus)%>% count()
+```
+
+### unique values
+
+```{r}
+unique(Jobs_Data$FlagColour)
+unique(Jobs_Data$RedFlagStatus)
+
+```
+
+## table
+
+```{r}
+table(Jobs_Data$FlagColour, Jobs_Data$RedFlagStatus)
+```
+
+## convet NA to na string
+
+```{r}
+Jobs_Data$FlagColour <- Jobs_Data$FlagColour %>% replace_na('na')
+head(Jobs_Data$FlagColour)
+```
+
+```{r}
+Jobs_Data$RedFlagStatus <- Jobs_Data$RedFlagStatus %>% replace_na('na')
+head(Jobs_Data$RedFlagStatus)
+```
+
+### make table
+
+```{r}
+table(Jobs_Data$FlagColour, Jobs_Data$RedFlagStatus)
+```
+
+## Arrange
+
+used to sort list
+
+```{r}
+#arrange()
+```
+
+### mutate
+
+is used to update or create new column
+
+```{r}
+Jobs_Data <- Jobs_Data %>% mutate(RedFlagged = case_when(RedFlagStatus == 'Not Ack' ~ '1'))
+Jobs_Data$RedFlagged <- Jobs_Data$RedFlagged %>% replace_na(0)  
+ head(Jobs_Data$RedFlagged )
+```
