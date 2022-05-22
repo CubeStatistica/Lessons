@@ -115,8 +115,16 @@ Bar chart with ggplot
 ```{r}
 Jobs_Data %>%
     group_by(JobStatus,RedFlagged ) %>%
-    tally() %>%
     ggplot(aes(x = RedFlagged, fill = JobStatus)) + # `fill` is specific for histograms
         geom_bar()
+```
+
+Size chart using ggplot2
+
+```{r}
+Jobs_Data %>%
+    group_by(JobStatus,RedFlagged ) %>%
+    ggplot(aes(x = RedFlagged,y=JobStatus, fill = JobStatus, color= RedFlagged)) + 
+        geom_count()
 ```
 
