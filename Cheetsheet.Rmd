@@ -109,3 +109,14 @@ Jobs_Data %>%
         geom_histogram()
 ```
 
+Bar chart with ggplot
+
+
+```{r}
+Jobs_Data %>%
+    group_by(JobStatus,RedFlagged ) %>%
+    tally() %>%
+    ggplot(aes(x = RedFlagged, fill = JobStatus)) + # `fill` is specific for histograms
+        geom_bar()
+```
+
