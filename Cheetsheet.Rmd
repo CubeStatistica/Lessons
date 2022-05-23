@@ -139,8 +139,8 @@ Jobs_Data %>% group_by(IsPresentInOffersTable)%>% count()
 Table for ProductName
 
 ```{r}
-P_name  <- Jobs_Data%>% group_by(ProductName)%>% count()
- top_10_Pname <- P_name %>% ungroup() %>% top_n (10)
+P_name  <- Jobs_Data%>% group_by(ProductName,RedFlagStatus)%>% count()
+ top_10_Pname <- P_name %>% ungroup() %>% top_n(10)
      
 ```
 
@@ -157,10 +157,10 @@ get top product names
 Some more barchart
 
 ```{r}
-Jobs_Data %>%
+top_10_Pname %>%
 group_by(ProductName,RedFlagStatus) %>%
-    ggplot(aes(x = ProductName, fill =RedFlagStatus )) + 
-        geom_bar(width = )
+    ggplot(aes(x = RedFlagStatus, fill =ProductName )) + 
+        geom_bar()
 ```
 
 
