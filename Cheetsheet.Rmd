@@ -135,13 +135,31 @@ Table of IsPresentInOffersTable
 Jobs_Data %>% group_by(IsPresentInOffersTable)%>% count()
 ```
 
-
-Some more Histogram
+Table for ProductName
 
 ```{r}
-ggplot(data = Jobs_Data)+ 
-geom_point(mapping = aes(x = IsPresentInOffersTable, y = RedFlagStatus, size = IsPresentInOffersTable))
-  #geom_freqpoly(binwidth = 0.1)
+P_name  <- Jobs_Data%>% group_by(ProductName)%>% count()
+unique(P_name$ProductName)
+ sort.int(P_name$n, decreasing = TRUE)
+```
+
+get top product names 
+
+```{r}
+#library(data.table)
+#order(Jobs_Data$ProductName,
+     # decreasing = FALSE)
+```
+
+
+
+Some more barchart
+
+```{r}
+Jobs_Data %>%
+group_by(ProductName,RedFlagStatus) %>%
+    ggplot(aes(x = ProductName, fill =RedFlagStatus )) + 
+        geom_bar(width = )
 ```
 
 
