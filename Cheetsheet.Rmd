@@ -128,11 +128,19 @@ Jobs_Data %>%
         geom_count()
 ```
 
+Table of IsPresentInOffersTable
+
+
+```{r}
+Jobs_Data %>% group_by(IsPresentInOffersTable)%>% count()
+```
+
+
 Some more Histogram
 
 ```{r}
 ggplot(data = Jobs_Data)+ 
-geom_point(mapping = aes(x = IsPresentInOffersTable, y = RedFlagStatus))
+geom_point(mapping = aes(x = IsPresentInOffersTable, y = RedFlagStatus, size = IsPresentInOffersTable))
   #geom_freqpoly(binwidth = 0.1)
 ```
 
