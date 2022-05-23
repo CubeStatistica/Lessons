@@ -12,6 +12,7 @@ checking unqiue values.
 
 ```{r}
 library(tidyverse)
+library(dplyr)
 ```
 
 ### Load dataset
@@ -139,8 +140,8 @@ Table for ProductName
 
 ```{r}
 P_name  <- Jobs_Data%>% group_by(ProductName)%>% count()
-unique(P_name$ProductName)
- sort.int(P_name$n, decreasing = TRUE)
+ top_10_Pname <- P_name %>% ungroup() %>% top_n (10)
+     
 ```
 
 get top product names 
